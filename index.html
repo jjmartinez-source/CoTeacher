@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChocoPunch</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #3e2723, #5d4037, #8d6e63);
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ffcc80;
+      letter-spacing: 2px;
+    }
+
+    .slogan {
+      font-size: 1.3rem;
+      margin-top: 10px;
+      color: #ffe0b2;
+      font-style: italic;
+    }
+
+    .welcome {
+      margin: 30px auto;
+      max-width: 700px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #fbe9e7;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: #4e342e;
+      border-radius: 20px;
+      padding: 30px;
+      width: 250px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      background: #6d4c41;
+    }
+
+    .card h2 {
+      color: #ffcc80;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #ffe0b2;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      background: #ff8a65;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff7043;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #d7ccc8;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .menu {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🍫 ChocoPunch</h1>
+    <p class="slogan">"Un golpe de dulzura que no olvidarás"</p>
+  </header>
+
+  <section class="welcome">
+    <p>
+      Bienvenido a <strong>ChocoPunch</strong> 🍬  
+      Gracias por apoyar nuestro emprendimiento. Cada producto está hecho con dedicación, pasión y el mejor sabor para endulzar tus momentos especiales.
+    </p>
+  </section>
+
+  <section class="menu">
+
+    <!-- Galletas -->
+    <div class="card" onclick="mostrar('Galletas')">
+      <h2>🍪 Galletas</h2>
+      <p>Deliciosas galletas suaves, crujientes y llenas de chocolate.</p>
+      <button class="btn">Ver productos</button>
+    </div>
+
+    <!-- Frutas con chocolate -->
+    <div class="card" onclick="mostrar('Frutas en Chocolate')">
+      <h2>🍓 Frutas en Chocolate</h2>
+      <p>Fresas, bananas y más cubiertas con chocolate irresistible.</p>
+      <button class="btn">Ver productos</button>
+    </div>
+
+    <!-- Chocolates -->
+    <div class="card" onclick="mostrar('Chocolates')">
+      <h2>🍫 Chocolates</h2>
+      <p>Variedad de chocolates artesanales con sabores únicos.</p>
+      <button class="btn">Ver productos</button>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 ChocoPunch | Gracias por confiar en nosotros 💛
+  </footer>
+
+  <script>
+    function mostrar(categoria) {
+      alert("Estás entrando a la sección de: " + categoria);
+    }
+  </script>
+
+</body>
+</html>
