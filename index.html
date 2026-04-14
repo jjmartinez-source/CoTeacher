@@ -14,9 +14,25 @@
 }
 
 body {
-  background: #0a0a0a;
+  background: #050505;
   color: white;
   overflow-x: hidden;
+}
+
+/* LANGUAGE BUTTON */
+.lang-menu {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.lang-menu select {
+  padding: 8px;
+  background: black;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
 }
 
 /* HERO */
@@ -28,67 +44,49 @@ body {
   align-items: center;
   background: radial-gradient(circle at center, #1a1a1a, #000);
   text-align: center;
-  padding: 20px;
+  position: relative;
 }
 
-/* LOGO */
 .logo {
   width: 320px;
-  max-width: 90%;
   margin-bottom: 20px;
-  filter: drop-shadow(0 0 20px rgba(255,255,255,0.15));
-  animation: fadeIn 1.5s ease;
+  filter: drop-shadow(0 0 25px rgba(255,255,255,0.2));
 }
 
-/* Title */
 .hero h1 {
   font-size: 3.5rem;
-  letter-spacing: 5px;
+  letter-spacing: 6px;
 }
 
-/* Slogan */
 .slogan {
   margin-top: 10px;
-  font-size: 1.4rem;
-  color: #bbbbbb;
-  letter-spacing: 2px;
+  font-size: 1.3rem;
+  color: #ccc;
 }
 
-/* Scroll indicator */
-.scroll {
+/* LIGHTNING EFFECT */
+.lightning {
   position: absolute;
-  bottom: 30px;
-  font-size: 0.8rem;
-  color: #777;
-  animation: bounce 2s infinite;
+  width: 2px;
+  height: 200px;
+  background: white;
+  animation: flash 0.2s linear;
 }
 
-@keyframes bounce {
-  0%,100% {transform: translateY(0);}
-  50% {transform: translateY(10px);}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: scale(0.9);}
-  to {opacity: 1; transform: scale(1);}
+@keyframes flash {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
 }
 
 /* ABOUT */
 .about {
-  max-width: 900px;
+  max-width: 800px;
   margin: 80px auto;
   text-align: center;
   line-height: 1.8;
-  color: #d0d0d0;
+  color: #ccc;
   padding: 0 20px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s;
-}
-
-.about.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* MENU */
@@ -100,48 +98,25 @@ body {
   padding: 60px 20px;
 }
 
-/* CARDS */
 .card {
   width: 260px;
   height: 160px;
-  background: linear-gradient(145deg, #111, #1f1f1f);
-  border: 1px solid #333;
+  background: linear-gradient(145deg, #111, #222);
+  border: 1px solid #444;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: 0.4s;
+  transition: 0.3s;
   cursor: pointer;
   position: relative;
-  overflow: hidden;
-}
-
-/* Animated shine */
-.card::before {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent);
-  transform: rotate(25deg);
-  top: -100%;
-  left: -100%;
-}
-
-.card:hover::before {
-  animation: shine 0.8s;
-}
-
-@keyframes shine {
-  0% {top: -100%; left: -100%;}
-  100% {top: 100%; left: 100%;}
 }
 
 .card:hover {
   transform: scale(1.08);
   border-color: white;
-  box-shadow: 0 15px 40px rgba(255,255,255,0.15);
+  box-shadow: 0 0 30px rgba(255,255,255,0.2);
 }
 
 .card h2 {
@@ -153,7 +128,6 @@ body {
 footer {
   text-align: center;
   padding: 40px;
-  font-size: 0.85rem;
   color: #777;
 }
 
@@ -162,82 +136,128 @@ footer {
   .hero h1 {
     font-size: 2.2rem;
   }
-
-  .menu {
-    flex-direction: column;
-    align-items: center;
-  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- LANGUAGE MENU -->
+<div class="lang-menu">
+  <select onchange="changeLang(this.value)">
+    <option value="en">English</option>
+    <option value="es">Español</option>
+    <option value="zh">中文</option>
+  </select>
+</div>
+
 <!-- HERO -->
 <section class="hero">
-  <img src="logo.png" class="logo" alt="Ascend Logo">
+  <img src="logo.png" class="logo">
 
-  <h1>ASCEND</h1>
-  <p class="slogan">The Strength of the Gods</p>
-
-  <div class="scroll">Scroll</div>
+  <h1 id="title">ASCEND</h1>
+  <p class="slogan" id="slogan">The Strength of the Gods</p>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
-  <p>
-    Ascend is built for those who demand more from themselves.  
-    This brand was created in the mindset of discipline, power, and relentless progression.  
-    Every piece of apparel is designed to move with you, to endure your grind, and to reflect your evolution.  
-    You are not here to stay the same — you are here to ascend.
-  </p>
+  Ascend was built for those who refuse to stay average.  
+  Forged in discipline and driven by power, our apparel represents evolution.  
+  You are not here to remain — you are here to ascend.
 </section>
 
 <!-- MENU -->
 <section class="menu">
 
-  <div class="card" onclick="goTo('Hoodies Ascend')">
-    <h2>Hoodies Ascend</h2>
+  <div class="card" onmouseover="thunder()" onclick="goTo('Hoodies')">
+    <h2 id="hoodies">Hoodies</h2>
   </div>
 
-  <div class="card" onclick="goTo('Training Shirts Ascend')">
-    <h2>Training Shirts Ascend</h2>
+  <div class="card" onmouseover="thunder()" onclick="goTo('Shirts')">
+    <h2 id="shirts">Training Shirts</h2>
   </div>
 
-  <div class="card" onclick="goTo('Shorts Ascend')">
-    <h2>Shorts Ascend</h2>
+  <div class="card" onmouseover="thunder()" onclick="goTo('Shorts')">
+    <h2 id="shorts">Shorts</h2>
   </div>
 
-  <div class="card" onclick="goTo('Sweatpants Ascend')">
-    <h2>Sweatpants Ascend</h2>
+  <div class="card" onmouseover="thunder()" onclick="goTo('Sweatpants')">
+    <h2 id="sweats">Sweatpants</h2>
   </div>
 
-  <div class="card" onclick="goTo('Performance Sets Ascend')">
-    <h2>Performance Sets</h2>
+  <div class="card" onmouseover="thunder()" onclick="goTo('Sets')">
+    <h2 id="sets">Performance Sets</h2>
   </div>
 
 </section>
 
-<footer>
+<footer id="footer">
   ASCEND 2026 — The Strength of the Gods
 </footer>
 
 <script>
+
+/* TRANSLATIONS */
+function changeLang(lang) {
+  const content = {
+    en: {
+      slogan: "The Strength of the Gods",
+      about: "Ascend was built for those who refuse to stay average. Forged in discipline and driven by power, our apparel represents evolution. You are not here to remain — you are here to ascend.",
+      hoodies: "Hoodies",
+      shirts: "Training Shirts",
+      shorts: "Shorts",
+      sweats: "Sweatpants",
+      sets: "Performance Sets"
+    },
+    es: {
+      slogan: "La Fuerza de los Dioses",
+      about: "Ascend fue creada para quienes se niegan a ser promedio. Forjada en disciplina y guiada por el poder, nuestra ropa representa evolución. No estás aquí para quedarte — estás aquí para ascender.",
+      hoodies: "Sudaderas",
+      shirts: "Camisas Deportivas",
+      shorts: "Shorts",
+      sweats: "Pantalones Deportivos",
+      sets: "Conjuntos"
+    },
+    zh: {
+      slogan: "众神之力",
+      about: "Ascend 为拒绝平凡的人而生。在纪律中锻造，在力量中前行。我们的服装代表进化。你不是来停留的——你是来提升的。",
+      hoodies: "连帽衫",
+      shirts: "训练上衣",
+      shorts: "短裤",
+      sweats: "运动裤",
+      sets: "套装"
+    }
+  };
+
+  document.getElementById("slogan").innerText = content[lang].slogan;
+  document.getElementById("about").innerText = content[lang].about;
+  document.getElementById("hoodies").innerText = content[lang].hoodies;
+  document.getElementById("shirts").innerText = content[lang].shirts;
+  document.getElementById("shorts").innerText = content[lang].shorts;
+  document.getElementById("sweats").innerText = content[lang].sweats;
+  document.getElementById("sets").innerText = content[lang].sets;
+}
+
+/* THUNDER EFFECT */
+function thunder() {
+  const bolt = document.createElement("div");
+  bolt.classList.add("lightning");
+
+  bolt.style.left = Math.random() * window.innerWidth + "px";
+  bolt.style.top = Math.random() * window.innerHeight + "px";
+
+  document.body.appendChild(bolt);
+
+  setTimeout(() => {
+    bolt.remove();
+  }, 200);
+}
+
+/* CLICK */
 function goTo(category) {
   alert("Entering: " + category);
 }
 
-/* Scroll animation */
-const about = document.getElementById("about");
-
-window.addEventListener("scroll", () => {
-  const position = about.getBoundingClientRect().top;
-  const screen = window.innerHeight;
-
-  if(position < screen - 100){
-    about.classList.add("visible");
-  }
-});
 </script>
 
 </body>
