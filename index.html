@@ -6,109 +6,92 @@
 <title>3DInventions</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background: linear-gradient(135deg, #2e0066, #5a00cc);
-        color: white;
-        overflow-x: hidden;
-    }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #2e0066, #5a00cc);
+    color: white;
+    overflow-x: hidden;
+}
 
-    /* HEADER */
-    header {
-        text-align: center;
-        padding: 30px;
-        background: #1a0033;
-        box-shadow: 0 0 15px rgba(255,255,0,0.4);
-    }
+/* HEADER */
+header {
+    text-align: center;
+    padding: 30px;
+    background: #1a0033;
+    box-shadow: 0 0 15px rgba(255,255,0,0.4);
+}
 
-    header h1 {
-        font-size: 3rem;
-        color: #ffd700;
-        letter-spacing: 2px;
-    }
+header h1 {
+    font-size: 3rem;
+    color: #ffd700;
+}
 
-    /* INTRO */
-    .intro {
-        text-align: center;
-        padding: 40px 20px;
-        font-size: 1.2rem;
-        max-width: 800px;
-        margin: auto;
-        line-height: 1.6;
-    }
+/* INTRO */
+.intro {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+}
 
-    /* MENU */
-    .menu {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 30px;
-    }
+/* MENU */
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+}
 
-    .menu button {
-        background: #ffd700;
-        color: #2e0066;
-        border: none;
-        padding: 15px 25px;
-        font-size: 1rem;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 10px rgba(255,255,0,0.6);
-    }
+.menu button {
+    background: #ffd700;
+    color: #2e0066;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-    .menu button:hover {
-        transform: scale(1.1);
-        background: #fff176;
-        box-shadow: 0 0 20px rgba(255,255,0,1);
-    }
+.menu button:hover {
+    transform: scale(1.1);
+    background: #fff176;
+}
 
-    /* CONTENT */
-    .content {
-        text-align: center;
-        margin-top: 20px;
-        font-size: 1.5rem;
-        min-height: 50px;
-        transition: opacity 0.3s;
-    }
+/* CONTENT */
+.content {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.3rem;
+}
 
-    /* WHATSAPP BUTTON */
-    .whatsapp {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: #25D366;
-        color: white;
-        padding: 15px 20px;
-        border-radius: 50px;
-        font-size: 1rem;
-        text-decoration: none;
-        box-shadow: 0 0 15px rgba(0,0,0,0.4);
-        transition: all 0.3s ease;
-    }
+/* WHATSAPP */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+}
 
-    .whatsapp:hover {
-        transform: scale(1.1);
-        background: #1ebe5d;
-    }
+/* GLOW */
+.glow {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,255,0,0.3), transparent);
+    border-radius: 50%;
+    animation: moveGlow 8s infinite alternate;
+}
 
-    /* ANIMATION BACKGROUND EFFECT */
-    .glow {
-        position: fixed;
-        width: 200px;
-        height: 200px;
-        background: radial-gradient(circle, rgba(255,255,0,0.3), transparent);
-        border-radius: 50%;
-        pointer-events: none;
-        animation: moveGlow 8s infinite alternate;
-    }
-
-    @keyframes moveGlow {
-        from { transform: translate(0,0); }
-        to { transform: translate(300px, 200px); }
-    }
+@keyframes moveGlow {
+    from { transform: translate(0,0); }
+    to { transform: translate(300px, 200px); }
+}
 </style>
 </head>
 
@@ -119,38 +102,31 @@
 </header>
 
 <div class="intro">
-    Bienvenido a <strong>3DInventions</strong>, donde tus ideas toman forma.  
-    Creamos diseños únicos en impresión 3D: desde detalles personalizados hasta piezas funcionales.  
-    Explora nuestras categorías y descubre lo que podemos construir para ti.
+    Bienvenido a <strong>3DInventions</strong>, donde tus ideas toman forma en impresión 3D.
 </div>
 
 <div class="menu">
-    <button onclick="mostrar('Encargos personalizados según tu idea.')">Encargos</button>
-    <button onclick="mostrar('Llaveros únicos y creativos en 3D.')">Llaveros</button>
-    <button onclick="mostrar('Figuras detalladas para colección o decoración.')">Figuras</button>
-    <button onclick="mostrar('Diseños totalmente personalizados a tu gusto.')">Personalizados</button>
-    <button onclick="mostrar('Nuestros productos más vendidos.')">Lo más vendido</button>
+    <button onclick="window.location.href='encargos.html'">Encargos</button>
+    <button onclick="mostrar('Llaveros únicos en 3D.')">Llaveros</button>
+    <button onclick="mostrar('Figuras decorativas.')">Figuras</button>
+    <button onclick="mostrar('Diseños personalizados.')">Personalizados</button>
+    <button onclick="mostrar('Productos más vendidos.')">Lo más vendido</button>
 </div>
 
 <div class="content" id="contenido">
-    Selecciona una categoría para explorar.
+    Selecciona una categoría.
 </div>
 
 <a class="whatsapp" href="https://wa.me/504XXXXXXXX" target="_blank">
-    Contactar por WhatsApp
+    WhatsApp
 </a>
 
 <div class="glow"></div>
 
 <script>
-    function mostrar(texto) {
-        const contenido = document.getElementById("contenido");
-        contenido.style.opacity = 0;
-        setTimeout(() => {
-            contenido.innerText = texto;
-            contenido.style.opacity = 1;
-        }, 200);
-    }
+function mostrar(texto){
+    document.getElementById("contenido").innerText = texto;
+}
 </script>
 
 </body>
