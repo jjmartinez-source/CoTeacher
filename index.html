@@ -1,243 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ascend</title>
+<title>3DInventions</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #2e0066, #5a00cc);
+        color: white;
+        overflow-x: hidden;
+    }
 
-body {
-  background: #0a0a0a;
-  color: white;
-  overflow-x: hidden;
-}
+    /* HEADER */
+    header {
+        text-align: center;
+        padding: 30px;
+        background: #1a0033;
+        box-shadow: 0 0 15px rgba(255,255,0,0.4);
+    }
 
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: radial-gradient(circle at center, #1a1a1a, #000);
-  text-align: center;
-  padding: 20px;
-}
+    header h1 {
+        font-size: 3rem;
+        color: #ffd700;
+        letter-spacing: 2px;
+    }
 
-/* LOGO */
-.logo {
-  width: 320px;
-  max-width: 90%;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 20px rgba(255,255,255,0.15));
-  animation: fadeIn 1.5s ease;
-}
+    /* INTRO */
+    .intro {
+        text-align: center;
+        padding: 40px 20px;
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: auto;
+        line-height: 1.6;
+    }
 
-/* Title */
-.hero h1 {
-  font-size: 3.5rem;
-  letter-spacing: 5px;
-}
+    /* MENU */
+    .menu {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 30px;
+    }
 
-/* Slogan */
-.slogan {
-  margin-top: 10px;
-  font-size: 1.4rem;
-  color: #bbbbbb;
-  letter-spacing: 2px;
-}
+    .menu button {
+        background: #ffd700;
+        color: #2e0066;
+        border: none;
+        padding: 15px 25px;
+        font-size: 1rem;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(255,255,0,0.6);
+    }
 
-/* Scroll indicator */
-.scroll {
-  position: absolute;
-  bottom: 30px;
-  font-size: 0.8rem;
-  color: #777;
-  animation: bounce 2s infinite;
-}
+    .menu button:hover {
+        transform: scale(1.1);
+        background: #fff176;
+        box-shadow: 0 0 20px rgba(255,255,0,1);
+    }
 
-@keyframes bounce {
-  0%,100% {transform: translateY(0);}
-  50% {transform: translateY(10px);}
-}
+    /* CONTENT */
+    .content {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1.5rem;
+        min-height: 50px;
+        transition: opacity 0.3s;
+    }
 
-@keyframes fadeIn {
-  from {opacity: 0; transform: scale(0.9);}
-  to {opacity: 1; transform: scale(1);}
-}
+    /* WHATSAPP BUTTON */
+    .whatsapp {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #25D366;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 50px;
+        font-size: 1rem;
+        text-decoration: none;
+        box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        transition: all 0.3s ease;
+    }
 
-/* ABOUT */
-.about {
-  max-width: 900px;
-  margin: 80px auto;
-  text-align: center;
-  line-height: 1.8;
-  color: #d0d0d0;
-  padding: 0 20px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s;
-}
+    .whatsapp:hover {
+        transform: scale(1.1);
+        background: #1ebe5d;
+    }
 
-.about.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    /* ANIMATION BACKGROUND EFFECT */
+    .glow {
+        position: fixed;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(255,255,0,0.3), transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: moveGlow 8s infinite alternate;
+    }
 
-/* MENU */
-.menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  padding: 60px 20px;
-}
-
-/* CARDS */
-.card {
-  width: 260px;
-  height: 160px;
-  background: linear-gradient(145deg, #111, #1f1f1f);
-  border: 1px solid #333;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: 0.4s;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Animated shine */
-.card::before {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent);
-  transform: rotate(25deg);
-  top: -100%;
-  left: -100%;
-}
-
-.card:hover::before {
-  animation: shine 0.8s;
-}
-
-@keyframes shine {
-  0% {top: -100%; left: -100%;}
-  100% {top: 100%; left: 100%;}
-}
-
-.card:hover {
-  transform: scale(1.08);
-  border-color: white;
-  box-shadow: 0 15px 40px rgba(255,255,255,0.15);
-}
-
-.card h2 {
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 40px;
-  font-size: 0.85rem;
-  color: #777;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .menu {
-    flex-direction: column;
-    align-items: center;
-  }
-}
+    @keyframes moveGlow {
+        from { transform: translate(0,0); }
+        to { transform: translate(300px, 200px); }
+    }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <img src="logo.png" class="logo" alt="Ascend Logo">
+<header>
+    <h1>3DInventions</h1>
+</header>
 
-  <h1>ASCEND</h1>
-  <p class="slogan">The Strength of the Gods</p>
+<div class="intro">
+    Bienvenido a <strong>3DInventions</strong>, donde tus ideas toman forma.  
+    Creamos diseños únicos en impresión 3D: desde detalles personalizados hasta piezas funcionales.  
+    Explora nuestras categorías y descubre lo que podemos construir para ti.
+</div>
 
-  <div class="scroll">Scroll</div>
-</section>
+<div class="menu">
+    <button onclick="mostrar('Encargos personalizados según tu idea.')">Encargos</button>
+    <button onclick="mostrar('Llaveros únicos y creativos en 3D.')">Llaveros</button>
+    <button onclick="mostrar('Figuras detalladas para colección o decoración.')">Figuras</button>
+    <button onclick="mostrar('Diseños totalmente personalizados a tu gusto.')">Personalizados</button>
+    <button onclick="mostrar('Nuestros productos más vendidos.')">Lo más vendido</button>
+</div>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <p>
-    Ascend is built for those who demand more from themselves.  
-    This brand was created in the mindset of discipline, power, and relentless progression.  
-    Every piece of apparel is designed to move with you, to endure your grind, and to reflect your evolution.  
-    You are not here to stay the same — you are here to ascend.
-  </p>
-</section>
+<div class="content" id="contenido">
+    Selecciona una categoría para explorar.
+</div>
 
-<!-- MENU -->
-<section class="menu">
+<a class="whatsapp" href="https://wa.me/504XXXXXXXX" target="_blank">
+    Contactar por WhatsApp
+</a>
 
-  <div class="card" onclick="goTo('Hoodies Ascend')">
-    <h2>Hoodies Ascend</h2>
-  </div>
-
-  <div class="card" onclick="goTo('Training Shirts Ascend')">
-    <h2>Training Shirts Ascend</h2>
-  </div>
-
-  <div class="card" onclick="goTo('Shorts Ascend')">
-    <h2>Shorts Ascend</h2>
-  </div>
-
-  <div class="card" onclick="goTo('Sweatpants Ascend')">
-    <h2>Sweatpants Ascend</h2>
-  </div>
-
-  <div class="card" onclick="goTo('Performance Sets Ascend')">
-    <h2>Performance Sets</h2>
-  </div>
-
-</section>
-
-<footer>
-  ASCEND 2026 — The Strength of the Gods
-</footer>
+<div class="glow"></div>
 
 <script>
-function goTo(category) {
-  alert("Entering: " + category);
-}
-
-/* Scroll animation */
-const about = document.getElementById("about");
-
-window.addEventListener("scroll", () => {
-  const position = about.getBoundingClientRect().top;
-  const screen = window.innerHeight;
-
-  if(position < screen - 100){
-    about.classList.add("visible");
-  }
-});
+    function mostrar(texto) {
+        const contenido = document.getElementById("contenido");
+        contenido.style.opacity = 0;
+        setTimeout(() => {
+            contenido.innerText = texto;
+            contenido.style.opacity = 1;
+        }, 200);
+    }
 </script>
 
 </body>
