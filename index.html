@@ -3,86 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FreshBalance</title>
+<title>3DInventions</title>
 
 <style>
     body {
         margin: 0;
         font-family: 'Segoe UI', sans-serif;
-        background: linear-gradient(135deg, #ffd6e0, #d4f8d4, #d4e7ff);
-        color: #333;
+        background: linear-gradient(135deg, #2e0066, #5a00cc);
+        color: white;
         overflow-x: hidden;
     }
 
     /* HEADER */
     header {
-        padding: 20px;
         text-align: center;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #4a4a4a;
+        padding: 30px;
+        background: #1a0033;
+        box-shadow: 0 0 15px rgba(255,255,0,0.4);
+    }
+
+    header h1 {
+        font-size: 3rem;
+        color: #ffd700;
+        letter-spacing: 2px;
     }
 
     /* INTRO */
     .intro {
         text-align: center;
-        padding: 20px;
+        padding: 40px 20px;
         font-size: 1.2rem;
+        max-width: 800px;
+        margin: auto;
+        line-height: 1.6;
     }
 
-    /* MENU BUTTON */
-    .menu-btn {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #fff;
-        border-radius: 50%;
-        padding: 12px;
-        cursor: pointer;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        z-index: 1000;
-        transition: 0.3s;
+    /* MENU */
+    .menu {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 30px;
     }
 
-    .menu-btn:hover {
-        transform: scale(1.1);
-    }
-
-    /* SIDEBAR */
-    .sidebar {
-        position: fixed;
-        top: 0;
-        right: -250px;
-        width: 250px;
-        height: 100%;
-        background: linear-gradient(180deg, #ffd6e0, #d4f8d4, #d4e7ff);
-        padding-top: 80px;
-        transition: 0.4s;
-        box-shadow: -3px 0 10px rgba(0,0,0,0.2);
-        z-index: 999;
-    }
-
-    .sidebar.active {
-        right: 0;
-    }
-
-    /* BUTTONS */
-    .sidebar button {
-        display: block;
-        width: 80%;
-        margin: 20px auto;
-        padding: 12px;
+    .menu button {
+        background: #ffd700;
+        color: #2e0066;
         border: none;
-        border-radius: 20px;
-        background: white;
+        padding: 15px 25px;
         font-size: 1rem;
+        border-radius: 12px;
         cursor: pointer;
-        transition: 0.3s;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(255,255,0,0.6);
     }
 
-    .sidebar button:hover {
-        transform: translateX(-5px) scale(1.05);
-        background: #f0f0f0;
+    .menu button:hover {
+        transform: scale(1.1);
+        background: #fff176;
+        box-shadow: 0 0 20px rgba(255,255,0,1);
+    }
+
+    /* CONTENT */
+    .content {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1.5rem;
+        min-height: 50px;
+        transition: opacity 0.3s;
     }
 
     /* WHATSAPP BUTTON */
@@ -92,47 +81,75 @@
         right: 20px;
         background: #25D366;
         color: white;
-        padding: 15px;
-        border-radius: 50%;
-        font-size: 22px;
+        padding: 15px 20px;
+        border-radius: 50px;
+        font-size: 1rem;
         text-decoration: none;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        transition: 0.3s;
-        z-index: 1000;
+        box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        transition: all 0.3s ease;
     }
 
     .whatsapp:hover {
         transform: scale(1.1);
+        background: #1ebe5d;
     }
 
+    /* ANIMATION BACKGROUND EFFECT */
+    .glow {
+        position: fixed;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(255,255,0,0.3), transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: moveGlow 8s infinite alternate;
+    }
+
+    @keyframes moveGlow {
+        from { transform: translate(0,0); }
+        to { transform: translate(300px, 200px); }
+    }
 </style>
 </head>
 
 <body>
 
-<header>FreshBalance</header>
+<header>
+    <h1>3DInventions</h1>
+</header>
 
 <div class="intro">
-    Bienvenido a FreshBalance 🌿  
-    Tu espacio para un estilo de vida saludable, fresco y lleno de energía.
+    Bienvenido a <strong>3DInventions</strong>, donde tus ideas toman forma.  
+    Creamos diseños únicos en impresión 3D: desde detalles personalizados hasta piezas funcionales.  
+    Explora nuestras categorías y descubre lo que podemos construir para ti.
 </div>
 
-<!-- MENU BUTTON -->
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-<!-- SIDEBAR -->
-<div class="sidebar" id="sidebar">
-    <button onclick="alert('Sección Encargos')">Encargos</button>
-    <button onclick="alert('Sección Fresh Cups')">Fresh Cups</button>
-    <button onclick="alert('Sección Fresh Bowls')">Fresh Bowls</button>
+<div class="menu">
+    <button onclick="mostrar('Encargos personalizados según tu idea.')">Encargos</button>
+    <button onclick="mostrar('Llaveros únicos y creativos en 3D.')">Llaveros</button>
+    <button onclick="mostrar('Figuras detalladas para colección o decoración.')">Figuras</button>
+    <button onclick="mostrar('Diseños totalmente personalizados a tu gusto.')">Personalizados</button>
+    <button onclick="mostrar('Nuestros productos más vendidos.')">Lo más vendido</button>
 </div>
 
-<!-- WHATSAPP BUTTON -->
-<a href="https://wa.me/50400000000" class="whatsapp" target="_blank">💬</a>
+<div class="content" id="contenido">
+    Selecciona una categoría para explorar.
+</div>
+
+<a class="whatsapp" href="https://wa.me/504XXXXXXXX" target="_blank">
+    Contactar por WhatsApp
+</a>
+
+<div class="glow"></div>
 
 <script>
-    function toggleMenu() {
-        document.getElementById("sidebar").classList.toggle("active");
+    function mostrar(texto) {
+        const contenido = document.getElementById("contenido");
+        contenido.style.opacity = 0;
+        setTimeout(() => {
+            contenido.innerText = texto;
+            contenido.style.opacity = 1;
+        }, 200);
     }
 </script>
 
