@@ -3,188 +3,155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Encargos - 3DInventions</title>
+<title>3DInventions</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #2e0066, #5a00cc);
-    color: white;
-}
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #2e0066, #5a00cc);
+        color: white;
+        overflow-x: hidden;
+    }
 
-/* HEADER */
-header {
-    text-align: center;
-    padding: 30px;
-    background: #1a0033;
-    box-shadow: 0 0 15px rgba(255,255,0,0.4);
-}
+    /* HEADER */
+    header {
+        text-align: center;
+        padding: 30px;
+        background: #1a0033;
+        box-shadow: 0 0 15px rgba(255,255,0,0.4);
+    }
 
-header h1 {
-    font-size: 2.5rem;
-    color: #ffd700;
-}
+    header h1 {
+        font-size: 3rem;
+        color: #ffd700;
+        letter-spacing: 2px;
+    }
 
-/* SECCIONES */
-.section {
-    padding: 30px;
-    text-align: center;
-}
+    /* INTRO */
+    .intro {
+        text-align: center;
+        padding: 40px 20px;
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: auto;
+        line-height: 1.6;
+    }
 
-h2 {
-    color: #ffd700;
-}
+    /* MENU */
+    .menu {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 30px;
+    }
 
-/* GRID */
-.grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-}
+    .menu button {
+        background: #ffd700;
+        color: #2e0066;
+        border: none;
+        padding: 15px 25px;
+        font-size: 1rem;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(255,255,0,0.6);
+    }
 
-/* TARJETAS */
-.card {
-    background: #1a0033;
-    border-radius: 15px;
-    padding: 15px;
-    width: 260px;
-    box-shadow: 0 0 15px rgba(255,255,0,0.4);
-    transition: all 0.3s ease;
-}
+    .menu button:hover {
+        transform: scale(1.1);
+        background: #fff176;
+        box-shadow: 0 0 20px rgba(255,255,0,1);
+    }
 
-.card:hover {
-    transform: scale(1.05);
-}
+    /* CONTENT */
+    .content {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1.5rem;
+        min-height: 50px;
+        transition: opacity 0.3s;
+    }
 
-.card img {
-    width: 100%;
-    border-radius: 10px;
-}
+    /* WHATSAPP BUTTON */
+    .whatsapp {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #25D366;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 50px;
+        font-size: 1rem;
+        text-decoration: none;
+        box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        transition: all 0.3s ease;
+    }
 
-/* PRECIO */
-.price {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    color: #ffd700;
-}
+    .whatsapp:hover {
+        transform: scale(1.1);
+        background: #1ebe5d;
+    }
 
-/* BOTONES */
-.btn {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 10px 20px;
-    background: #ffd700;
-    color: #2e0066;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
+    /* ANIMATION BACKGROUND EFFECT */
+    .glow {
+        position: fixed;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(255,255,0,0.3), transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: moveGlow 8s infinite alternate;
+    }
 
-.btn:hover {
-    background: #fff176;
-    transform: scale(1.1);
-}
-
-/* WHATSAPP */
-.whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 0 15px rgba(0,0,0,0.4);
-}
-
-.whatsapp:hover {
-    background: #1ebe5d;
-}
-
-/* EFECTO GLOW (igual que index) */
-.glow {
-    position: fixed;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(255,255,0,0.3), transparent);
-    border-radius: 50%;
-    pointer-events: none;
-    animation: moveGlow 8s infinite alternate;
-}
-
-@keyframes moveGlow {
-    from { transform: translate(0,0); }
-    to { transform: translate(300px, 200px); }
-}
+    @keyframes moveGlow {
+        from { transform: translate(0,0); }
+        to { transform: translate(300px, 200px); }
+    }
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Encargos Personalizados</h1>
+    <h1>3DInventions</h1>
 </header>
 
-<!-- PRODUCTO PRINCIPAL -->
-<div class="section">
-    <h2>Ejemplo de Producto</h2>
-
-    <div class="card" style="margin:auto;">
-        <img src="IMG_2303.jpg">
-        <div class="price">L 100</div>
-        <a class="btn" href="https://wa.me/504XXXXXXXX?text=Hola%20quiero%20un%20encargo%20como%20este" target="_blank">
-            Pedir este diseño
-        </a>
-    </div>
+<div class="intro">
+    Bienvenido a <strong>3DInventions</strong>, donde tus ideas toman forma.  
+    Creamos diseños únicos en impresión 3D: desde detalles personalizados hasta piezas funcionales.  
+    Explora nuestras categorías y descubre lo que podemos construir para ti.
 </div>
 
-<!-- PRODUCTOS -->
-<div class="section">
-    <h2>Disponibles</h2>
-
-    <div class="grid">
-
-        <div class="card">
-            <img src="IMG_2300.jpg">
-            <div class="price">L 100</div>
-            <a class="btn" href="https://wa.me/504XXXXXXXX?text=Quiero%20este%20modelo" target="_blank">
-                Comprar
-            </a>
-        </div>
-
-        <div class="card">
-            <img src="IMG_2301.jpg">
-            <div class="price">L 100</div>
-            <a class="btn" href="https://wa.me/504XXXXXXXX?text=Quiero%20este%20modelo" target="_blank">
-                Comprar
-            </a>
-        </div>
-
-        <div class="card">
-            <img src="IMG_2302.jpg">
-            <div class="price">L 100</div>
-            <a class="btn" href="https://wa.me/504XXXXXXXX?text=Quiero%20este%20modelo" target="_blank">
-                Comprar
-            </a>
-        </div>
-
-    </div>
+<div class="menu">
+    <button onclick="mostrar('Encargos personalizados según tu idea.')">Encargos</button>
+    <button onclick="mostrar('Llaveros únicos y creativos en 3D.')">Llaveros</button>
+    <button onclick="mostrar('Figuras detalladas para colección o decoración.')">Figuras</button>
+    <button onclick="mostrar('Diseños totalmente personalizados a tu gusto.')">Personalizados</button>
+    <button onclick="mostrar('Nuestros productos más vendidos.')">Lo más vendido</button>
 </div>
 
-<!-- REGRESO -->
-<div class="section">
-    <a class="btn" href="index.html">⬅ Volver al menú principal</a>
+<div class="content" id="contenido">
+    Selecciona una categoría para explorar.
 </div>
 
-<!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/504XXXXXXXX" target="_blank">
-    WhatsApp
+    Contactar por WhatsApp
 </a>
 
 <div class="glow"></div>
+
+<script>
+    function mostrar(texto) {
+        const contenido = document.getElementById("contenido");
+        contenido.style.opacity = 0;
+        setTimeout(() => {
+            contenido.innerText = texto;
+            contenido.style.opacity = 1;
+        }, 200);
+    }
+</script>
 
 </body>
 </html>
