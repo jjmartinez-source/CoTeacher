@@ -3,101 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3DInventions</title>
+<title>Hama Beads & Impresión 3D</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #2e0066, #5a00cc);
-    color: white;
-    overflow-x: hidden;
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
 }
 
-/* HEADER */
+body {
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #4c1d95, #fde047);
+color: white;
+}
+
 header {
-    text-align: center;
-    padding: 30px;
-    background: #1a0033;
-    box-shadow: 0 0 15px rgba(255,255,0,0.4);
+text-align: center;
+padding: 28px 16px 10px;
 }
 
 header h1 {
-    font-size: 3rem;
-    color: #ffd700;
+font-size: clamp(1.8rem, 4vw, 3rem);
 }
 
-/* INTRO */
-.intro {
-    text-align: center;
-    padding: 40px 20px;
-    max-width: 800px;
-    margin: auto;
+header p {
+margin-top: 8px;
+font-size: clamp(1rem, 2.5vw, 1.2rem);
+font-style: italic;
 }
 
-/* MENU */
-.menu {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 30px;
+main {
+padding: 40px 20px 100px;
 }
 
-.menu button {
-    background: #ffd700;
-    color: #2e0066;
-    border: none;
-    padding: 15px 25px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.3s;
+nav {
+display: grid;
+gap: 15px;
+width: 100%;
+max-width: 720px;
+margin: auto;
+grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 }
 
-.menu button:hover {
-    transform: scale(1.1);
-    background: #fff176;
+.btn {
+padding: 16px;
+border-radius: 14px;
+font-weight: bold;
+text-align: center;
+text-decoration: none;
+box-shadow: 0 6px 14px rgba(0,0,0,0.2);
 }
 
-/* CONTENT */
-.content {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 1.3rem;
+.btn:nth-child(odd) {
+background: #fde047;
+color: #4c1d95;
 }
 
-/* WHATSAPP */
+.btn:nth-child(even) {
+background: #7c3aed;
+color: white;
+}
+
 .whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    transition: 0.3s;
-}
-
-.whatsapp:hover {
-    transform: scale(1.1);
-}
-
-/* GLOW */
-.glow {
-    position: fixed;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(255,255,0,0.3), transparent);
-    border-radius: 50%;
-    animation: moveGlow 8s infinite alternate;
-}
-
-@keyframes moveGlow {
-    from { transform: translate(0,0); }
-    to { transform: translate(300px, 200px); }
+position: fixed;
+bottom: 16px;
+right: 16px;
+background: #25D366;
+color: white;
+padding: 12px 16px;
+border-radius: 999px;
+text-decoration: none;
+font-weight: bold;
 }
 </style>
 </head>
@@ -105,37 +82,23 @@ header h1 {
 <body>
 
 <header>
-    <h1>3DInventions</h1>
+<h1>Hama Beads & Impresión 3D</h1>
+<p>Creating what you want</p>
 </header>
 
-<div class="intro">
-    Bienvenido a <strong>3DInventions</strong>, donde tus ideas toman forma en impresión 3D.
-</div>
+<main>
+<nav>
+<a class="btn" href="#">Encargar Producto</a>
+<a class="btn" href="#">Ver Diseños</a>
+<a class="btn" href="#">Impresiones 3D</a>
+<a class="btn" href="#">Llaveros</a>
+<a class="btn" href="#">Lo más vendido</a>
+</nav>
+</main>
 
-<div class="menu">
-    <button onclick="window.location.href='encargos.html'">Encargos</button>
-    <button onclick="mostrar('Llaveros únicos en 3D.')">Llaveros</button>
-    <button onclick="mostrar('Figuras decorativas.')">Figuras</button>
-    <button onclick="mostrar('Diseños personalizados.')">Personalizados</button>
-    <button onclick="mostrar('Productos más vendidos.')">Lo más vendido</button>
-</div>
-
-<div class="content" id="contenido">
-    Selecciona una categoría.
-</div>
-
-<!-- BOTÓN WHATSAPP ACTUALIZADO -->
-<a class="whatsapp" href="https://wa.me/50489948261?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20impresi%C3%B3n%203D" target="_blank">
-    WhatsApp
+<a class="whatsapp" href="https://wa.me/50412345678">
+WhatsApp
 </a>
-
-<div class="glow"></div>
-
-<script>
-function mostrar(texto){
-    document.getElementById("contenido").innerText = texto;
-}
-</script>
 
 </body>
 </html>
